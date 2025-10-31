@@ -28,11 +28,20 @@ class SRVSettings(BaseModel):
 
 class APIV1(BaseModel):
     prefix: str = "/v1"
+    auth: str = "/auth"
 
 
 class APISettings(BaseModel):
     prefix: str = "/api"
     v1: APIV1 = APIV1()
+
+    @property
+    def bearer_token_url(self) -> str:
+        # api/v1/auth/login
+        parts = (self.prefix, self.v1.prefix, self.v1.auth, "/login")
+        path = "".join(parts)
+        # return path[1:]
+        return path.removeprefix("/")
 
 
 class AccessToken(BaseModel):
