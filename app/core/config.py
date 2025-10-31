@@ -10,14 +10,13 @@ class DBSettings(BaseModel):
     url: str = getenv(
         "DB_URL", "postgresql://postgres:password@localhost:5434/boardshop_db"
     )
-    echo: bool = getenv("DB_ECHO", False)
+    echo: bool = False
     max_overflow: int = getenv("DB_MAX_OVERFLOW", 10)
 
 
 class SRVSettings(BaseModel):
     host: str = getenv("SERVER_HOST", "0.0.0.0")
     port: int = getenv("SERVER_PORT", 8000)
-    reload: bool = getenv("SERVER_RELOAD", False)
 
 
 class APIV1(BaseModel):
