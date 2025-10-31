@@ -15,8 +15,9 @@ class DBSettings(BaseModel):
 
 
 class SRVSettings(BaseModel):
-    host: str = getenv("HOST", "0.0.0.0")
-    port: int = getenv("PORT", 8000)
+    host: str = getenv("SERVER_HOST", "0.0.0.0")
+    port: int = getenv("SERVER_PORT", 8000)
+    reload: bool = getenv("SERVER_RELOAD", False)
 
 
 class APIV1(BaseModel):
@@ -40,3 +41,4 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
+print(settings)
