@@ -7,7 +7,7 @@ from core.config import settings
 class Base(DeclarativeBase):
     __abstract__ = True
 
-    metadata = MetaData(settings.db.naming_convention)
+    metadata = MetaData(naming_convention=settings.db.naming_convention)
 
     @declared_attr
     def __tablename__(cls):
