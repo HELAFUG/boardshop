@@ -29,6 +29,7 @@ class SRVSettings(BaseModel):
 class APIV1(BaseModel):
     prefix: str = "/v1"
     auth: str = "/auth"
+    users: str = "/users"
 
 
 class APISettings(BaseModel):
@@ -45,7 +46,7 @@ class APISettings(BaseModel):
 
 
 class AccessToken(BaseModel):
-    lifetime_seconds: int = getenv("ACCESS_TOKEN_LIFETIME_SECONDS", 3600)
+    lifetime_seconds: int = 3600
     reset_password_token_secret: str = getenv("RESET_PASSWORD_SECRET_TOKEN", "secret")
     verification_token_secret: str = getenv("VERIFICATION_SECRET_TOKEN", "secret")
 
