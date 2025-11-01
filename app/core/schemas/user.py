@@ -1,10 +1,10 @@
 from fastapi_users import schemas
 
 
-from core.types import UserIdType
+from core.types import UserIDType
 
 
-class UserRead(schemas.BaseUser[UserIdType]):
+class UserRead(schemas.BaseUser[UserIDType]):
     pass
 
 
