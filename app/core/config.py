@@ -11,7 +11,7 @@ class DBSettings(BaseModel):
         "DB_URL", "postgresql://postgres:password@localhost:5434/boardshop_db"
     )
     echo: bool = False
-    max_overflow: int = getenv("DB_MAX_OVERFLOW", 10)
+    max_overflow: int = 10
     naming_convention: dict[str, str] = {
         "ix": "ix_%(column_0_label)s",
         "uq": "uq_%(table_name)s_%(column_0_N_name)s",
