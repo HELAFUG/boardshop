@@ -10,7 +10,9 @@ from .fastapi_users import fastapi_users
 http_bearer = HTTPBearer(auto_error=False)
 
 router = APIRouter(
-    prefix=settings.api.v1.users, tags=["Users"], dependencies=[Depends(http_bearer)]
+    prefix=settings.api.v1.users,
+    tags=["Users"],
+    dependencies=[Depends(http_bearer)],
 )
 
 router.include_router(
